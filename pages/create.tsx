@@ -33,6 +33,9 @@ const Draft: React.FC = () => {
       <div>
         <form onSubmit={submitData}>
           <h1>New Draft</h1>
+          <p className="text-5xl">
+            Hello world!
+          </p>
           <input
             autoFocus
             onChange={(e) => setTitle(e.target.value)}
