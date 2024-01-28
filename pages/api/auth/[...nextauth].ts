@@ -5,6 +5,8 @@ import GoogleProvider from "next-auth/providers/google";
 import DiscordProvider from "next-auth/providers/discord";
 import RedditProvider from "next-auth/providers/reddit";
 import SpotifyProvider from "next-auth/providers/spotify";
+import InstagramProvider from "next-auth/providers/instagram";
+
 import prisma from '../../../lib/prisma';
 
 const authHandler: NextApiHandler = (req, res) => NextAuth(req, res, options);
@@ -35,6 +37,10 @@ const options = {
       clientId: process.env.SPOTIFY_CLIENT_ID,
       clientSecret: process.env.SPOTIFY_CLIENT_SECRET
     }),
+    InstagramProvider({
+      clientId: process.env.INSTAGRAM_CLIENT_ID,
+      clientSecret: process.env.INSTAGRAM_CLIENT_SECRET
+    })
   ],
   adapter: PrismaAdapter(prisma),
   secret: process.env.SECRET,
